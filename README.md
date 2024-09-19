@@ -1,38 +1,33 @@
-# create-svelte
+# runclubs.ca
+runclubs.ca provides information about running clubs in various Canadian cities. Users can:
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+- Browse run clubs by city
+- View weekly schedules of run club events
+- Access detailed information about each run club, including meeting times, locations, and social media links
 
-## Creating a project
+## Infrastructure and Hosting
 
-If you're seeing this, you've probably already done this step. Congrats!
+The site is built using SvelteKit and hosted on Cloudflare Pages. Here's an overview of the app's infrastructure:
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+1. **Static Site Generation**: The app is pre-rendered into static HTML, CSS, and JavaScript using SvelteKit's static adapter.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+2. **Cloudflare Pages**: The static files are hosted and served through Cloudflare Pages.
 
-## Developing
+3. **Subdomain Routing**: Cloudflare Workers (via the `_middleware.js` file) handle subdomain routing, allowing city-specific subdomains (e.g., vancouver.runclubs.ca).
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+4. **Data Management**: Run club data is stored in JSON files for now
 
-```bash
-npm run dev
+## Build and Deployment Process
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+1. **Development**: Run `npm run dev` for local development.
 
-## Building
+2. **Deployment**: Push changes to the main branch on GitHub. Cloudflare Pages will automatically build and deploy the site.
 
-To create a production version of your app:
+## Key Files and Their Roles
 
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- `functions/_middleware.js`: Handles subdomain routing.
+- `src/routes/[city]/+page.svelte`: City-specific page template.
+- `src/routes/[city]/[clubId]/+page.svelte`: Individual run club page template.
+- `static/_redirects`: Manages redirects for city pages.
+- `svelte.config.js`: Configures SvelteKit and the static adapter.
+- `src/lib/data/*.json`: Stores city-specific run club data.
