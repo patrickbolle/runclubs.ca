@@ -31,7 +31,10 @@
     </main>
 
     <footer class="mt-8 text-center text-gray-500">
-      <p>&copy; 2023 RunClubs.ca</p>
+      <p>runclubs.ca</p>
+      <p>
+        <a class="text-blue-600" href="https://bollenbach.ca/?utm_source=runclubs">Built by Patrick Bollenbach</a>
+      </p>
     </footer>
   </div>
 </div>
