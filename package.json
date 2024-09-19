@@ -10,7 +10,8 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"deploy": "npm run build && wrangler pages publish build"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
