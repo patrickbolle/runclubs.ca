@@ -1,15 +1,32 @@
-  export async function onRequest({ request, next }) {
-    const url = new URL(request.url);
-    const subdomain = url.hostname.split('.')[0];
-  
-    if (subdomain !== 'www' && subdomain !== 'runclubs' && subdomain !== url.hostname) {
-      // Check if the path is already set to the subdomain
-      if (!url.pathname.startsWith(`/${subdomain}`)) {
-        // Rewrite the URL to include the subdomain as a path
-        url.pathname = `/${subdomain}${url.pathname}`;
-        return Response.redirect(url.toString(), 301);
-      }
+export default {
+  async fetch(request, env, ctx) {
+    // Only GET requests are allowed
+    if (request.method !== "GET") {
+      return new Response(`Method ${request.method} not allowed.`, {
+        status: 405,
+        headers: {
+          Allow: "GET",
+        },
+      });
     }
-  
-    return next();
-  }
+
+    const url = new URL(request.url);
+    const hostname = url.hostname;
+    const subdomain = hostname.split('.')[0];
+
+    // Check if it's a valid subdomain (not www or the main domain)
+    if (subdomain !== 'www' && subdomain !== 'runclubs' && hostname !== 'runclubs.ca') {
+      // Construct the new URL with the subdomain as a path
+      const newUrl = new URL(`https://runclubs.ca/${subdomain}${url.pathname}`);
+      
+      // Fetch the new URL
+      const response = await fetch(newUrl.toString(), request);
+
+      // Return the response
+      return response;
+    }
+
+    // If it's not a subdomain request, just pass it through
+    return fetch(request);
+  },
+};

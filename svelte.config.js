@@ -5,7 +5,7 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		prerender: {
-			entries: ['*', '/vancouver', '/vancouver/*']
+			entries: ['*', '/vancouver', '/vancouver/*', '/victoria', '/victoria/*']
 		}
 	}
 };
