@@ -1,5 +1,5 @@
 # Redirect /vancouver to the subdomain
-/vancouver/* https://vancouver.runclubs.ca/:splat 301
+/vancouver/* /:splat 301
 
 # Add any other city-specific redirects here
 /victoria/* https://victoria.runclubs.ca/:splat 301

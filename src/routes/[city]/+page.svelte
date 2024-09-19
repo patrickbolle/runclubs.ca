@@ -6,10 +6,7 @@
   $: city = $page.params.city;
   $: cityData = city.toLowerCase() === 'vancouver' ? vancouverData : null;
 
-  $: title = cityData ? `${cityData.city} Run Clubs - runclubs.ca` : 'City Not Found - runclubs.ca';
-  $: description = cityData 
-    ? `Discover the best running clubs in ${cityData.city}. Join local running groups and stay active with fellow runners.`
-    : 'Explore run clubs in cities across Canada. Find your perfect running group today!';
+  // ... rest of the script ...
 </script>
 
 <svelte:head>

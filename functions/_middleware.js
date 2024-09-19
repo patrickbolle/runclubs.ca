@@ -1,6 +1,4 @@
-
-
-  export async function onRequest({ request, env, next }) {
+  export async function onRequest({ request, next }) {
     const url = new URL(request.url);
     const subdomain = url.hostname.split('.')[0];
   
@@ -14,4 +12,3 @@
   
     return next();
   }
-  
