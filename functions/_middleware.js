@@ -1,5 +1,7 @@
 export default {
-  async fetch(request, env, ctx) {
+  async fetch(request) {
+    console.log("Middleware function called");
+    
     // Only GET requests are allowed
     if (request.method !== "GET") {
       return new Response(`Method ${request.method} not allowed.`, {
