@@ -23,7 +23,7 @@
           runclubs.ca
         {/if}
       </h1>
-      <p class="text-gray-600">Find your new favouriterunning club in {displayCity}.</p>
+      <p class="text-gray-600">Find your new favourite running clubs in {displayCity}.</p>
     </header>
 
     <main>

@@ -8,7 +8,7 @@
   $: cityData = city.toLowerCase() === 'vancouver' ? vancouverData : null;
   $: club = cityData?.runClubs.find(c => c.id === clubId);
 
-  $: title = club ? `${club.name} - RunClubs.ca` : 'Run Club Not Found - RunClubs.ca';
+  $: title = club ? `${club.name} in ${cityData.city} - runclubs.ca` : 'Canadian Run Clubs - runclubs.ca';
   $: description = club
     ? `Join ${club.name} in ${cityData.city} every ${club.day} at ${formatTime(club.time)}. Meet at ${club.location} for a great run!`
     : 'Explore run clubs in cities across Canada. Find your perfect running group today!';

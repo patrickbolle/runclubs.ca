@@ -1,6 +1,6 @@
 {
     "city": "Vancouver",
-    "description": "Vancouver, a bustling west coast seaport in British Columbia, is among Canada's densest, most ethnically diverse cities. A popular filming location, it's surrounded by mountains, and also has thriving art, theatre and music scenes. Vancouver Art Gallery is known for its works by regional artists, while the Museum of Anthropology houses preeminent First Nations collections.",
+    "description": "Vancouver is a runner's paradise, featuring a vibrant running community and diverse terrain, from the iconic Stanley Park Seawall to scenic trails in the North Shore mountains. With a mild climate and numerous run clubs catering to all levels, the city has run clubs offering anything from casual group runs to competitive training.",
     "runClubs": [
       {
         "id": "east-van-run-crew",
