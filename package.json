@@ -32,6 +32,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-cloudflare": "^4.7.2",
 		"date-fns": "^4.1.0"
 	}
 }
