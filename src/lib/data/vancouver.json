@@ -1,1 +1,103 @@
- 
+{
+    "city": "Vancouver",
+    "description": "Vancouver, a bustling west coast seaport in British Columbia, is among Canada's densest, most ethnically diverse cities. A popular filming location, it's surrounded by mountains, and also has thriving art, theatre and music scenes. Vancouver Art Gallery is known for its works by regional artists, while the Museum of Anthropology houses preeminent First Nations collections.",
+    "runClubs": [
+      {
+        "id": "east-van-run-crew",
+        "name": "East Van Run Crew (EVRC)",
+        "day": "Monday",
+        "time": "18:30",
+        "location": "Various breweries in East Van",
+        "description": "A social run to shake out the Monday blues, starting from a different brewery each week.",
+        "socialMedia": {
+          "instagram": "@eastvanruncrew",
+          "facebook": "eastvanruncrew"
+        }
+      },
+      {
+        "id": "fraser-street-run-crew",
+        "name": "Fraser Street Run Crew (FSRC)",
+        "day": "Friday",
+        "time": "19:00",
+        "location": "1008 E20th Avenue",
+        "description": "Social runs open to everyone for a 5 or 10k social run.",
+        "socialMedia": {
+          "instagram": "@fraserstreetrunclub",
+          "facebook": "fraserstreetrunclub"
+        }
+      },
+      {
+        "id": "mile2marathon",
+        "name": "Mile2Marathon",
+        "day": "Wednesday and Saturday",
+        "time": "18:30 (Wed) / 08:15 (Sat)",
+        "location": "Point Grey Secondary School Track/Stanley Park",
+        "description": "Offers top-notch coaching with twice-weekly interval workouts.",
+        "socialMedia": {
+          "instagram": "@mile2marathon",
+          "facebook": "mile2marathon"
+        }
+      },
+      {
+        "id": "runvan-run-club",
+        "name": "RUNVAN Run Club",
+        "day": "Thursday",
+        "time": "06:30",
+        "location": "Fairmont Waterfront Hotel",
+        "description": "A casual run club open to anyone who likes an early morning jog along the seawall.",
+        "socialMedia": {
+          "instagram": "@runvancanada",
+          "facebook": "runvancanada"
+        }
+      },
+      {
+        "id": "north-shore-lions-acc",
+        "name": "North Shore Lions Athletic Club",
+        "day": "Tuesday",
+        "time": "18:30",
+        "location": "Lions Gate Bridge Parking Lot",
+        "description": "A competitive running club offering training for all experience levels.",
+        "socialMedia": {
+          "instagram": "@northshorelions",
+          "facebook": "northshorelions"
+        }
+      },
+      {
+        "id": "vancouver-frontrunners",
+        "name": "Vancouver Frontrunners",
+        "day": "Wednesday",
+        "time": "19:00",
+        "location": "Coal Harbour Seawall",
+        "description": "A welcoming club for all LGBTQ+ runners, providing social runs and training opportunities.",
+        "socialMedia": {
+          "instagram": "@vancouverfrontrunners",
+          "facebook": "vancouverfrontrunners"
+        }
+      },
+      {
+        "id": "steel-oak-run-club",
+        "name": "Steel and Oak Run Club",
+        "day": "Wednesday",
+        "time": "19:00",
+        "location": "Steel & Oak Brewing Co.",
+        "description": "A run club that combines social running with craft beer and fun events.",
+        "socialMedia": {
+          "instagram": "@steelandoakrunclub",
+          "facebook": "steelandoakrunclub"
+        }
+      },
+      {
+        "id": "queer-van-run-club",
+        "name": "Queer Van Run Club",
+        "day": "Thursday",
+        "time": "18:30",
+        "location": "Various Locations",
+        "description": "An inclusive run club for the LGBTQ+ community, focusing on fun and fitness.",
+        "socialMedia": {
+          "instagram": "@queervanrunclub",
+          "facebook": "queervanrunclub"
+        }
+      }
+    ]
+  }
+  
