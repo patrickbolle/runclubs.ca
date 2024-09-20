@@ -1,10 +1,8 @@
 <script>
   import { page } from '$app/stores';
   import WeeklyCalendar from '$lib/components/WeeklyCalendar.svelte';
-  import vancouverData from '$lib/data/vancouver.json';
 
-  $: city = $page.params.city;
-  $: cityData = city.toLowerCase() === 'vancouver' ? vancouverData : null;
+  $: ({ cityData } = $page.data);
 
   $: title = cityData ? `${cityData.city} Run Clubs - runclubs.ca` : 'City Not Found - runclubs.ca';
   $: description = cityData 
@@ -19,10 +17,11 @@
 
 {#if cityData}
   <div class="mb-6 bg-white p-4 rounded-lg shadow">
+    <h1 class="text-2xl font-bold mb-2">{cityData.city} Run Clubs</h1>
     <p class="mb-2"><strong>Number of Run Clubs:</strong> {cityData.runClubs.length}</p>
     <p>{cityData.description}</p>
   </div>
   <WeeklyCalendar runClubs={cityData.runClubs} />
 {:else}
-  <p>No data available for {city}. Please check back later.</p>
+  <p>No data available for {$page.params.city}. Please check the URL and try again.</p>
 {/if}
