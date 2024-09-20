@@ -1,16 +1,9 @@
-import adapter from '@sveltejs/adapter-cloudflare'; // or whichever adapter you're using
-import { vitePreprocess } from '@sveltejs/kit/vite';
+import adapter from '@sveltejs/adapter-cloudflare';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	preprocess: vitePreprocess(),
-
 	kit: {
-		adapter: adapter(),
-		paths: {
-			base: '',
-			assets: ''
-		}
+		adapter: adapter()
 	}
 };
 
