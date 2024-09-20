@@ -2,17 +2,6 @@
   import { page } from '$app/stores';
   import WeeklyCalendar from '$lib/components/WeeklyCalendar.svelte';
 
-  export async function load({ params }) {
-    const { city } = params;
-    try {
-      const cityData = await import(`../../lib/data/${city.toLowerCase()}.json`);
-      return { cityData: cityData.default };
-    } catch (e) {
-      console.error(`Error loading data for ${city}:`, e);
-      return { cityData: null };
-    }
-  }
-
   $: ({ cityData } = $page.data);
 
   $: title = cityData ? `${cityData.city} Run Clubs - runclubs.ca` : 'City Not Found - runclubs.ca';
@@ -34,5 +23,5 @@
   </div>
   <WeeklyCalendar runClubs={cityData.runClubs} />
 {:else}
-  <p>No data available for {$page.params.city}. Please check back later.</p>
+  <p>No data available for {$page.params.city}. Please check the URL and try again.</p>
 {/if}
