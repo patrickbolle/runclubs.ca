@@ -1,9 +1,13 @@
 import vancouver from './data/vancouver.json';
-// Import other city data files here
+import toronto from './data/toronto.json';
+import kitchenerWaterloo from './data/kitchener-waterloo.json';
 
 export const cityData = {
   vancouver,
-  // Add other cities here
+  toronto,
+  'kitchener-waterloo': kitchenerWaterloo,
 };
 
 export const cities = Object.keys(cityData);
+
+console.log('City Data:', cityData);

@@ -29,8 +29,8 @@
     {
       "id": "mile2marathon",
       "name": "Mile2Marathon",
-      "day": "Wednesday and Saturday",
-      "time": "18:30 (Wed) / 08:15 (Sat)",
+      "day": "Wednesday,Saturday",
+      "time": "18:30,08:15",
       "location": "Point Grey Secondary School Track/Stanley Park",
       "description": "Offers top-notch coaching with twice-weekly interval workouts.",
       "socialMedia": {
@@ -96,6 +96,54 @@
       "socialMedia": {
         "instagram": "@queervanrunclub",
         "facebook": "queervanrunclub"
+      }
+    },
+    {
+      "id": "vancity-beer-run",
+      "name": "Vancouver Beer Run",
+      "day": "Tuesday",
+      "time": "18:00",
+      "location": "Various locations",
+      "description": "Get fit, drink beer. Chill paces. All welcome!",
+      "socialMedia": {
+        "instagram": "@vancitybeerrun",
+        "facebook": ""
+      }
+    },
+    {
+      "id": "mondays-run-club",
+      "name": "Mondays Run Club",
+      "day": "Monday",
+      "time": "17:30",
+      "location": "Various locations",
+      "description": "More than just a run club. MRC - Mondays. SOLE TIES - BE BACK SOON",
+      "socialMedia": {
+        "instagram": "@mondaysrunclub",
+        "facebook": ""
+      }
+    },
+    {
+      "id": "slowpokes-van",
+      "name": "Slowpokes Vancouver",
+      "day": "Saturday,Wednesday,Tuesday",
+      "time": "10:00,19:00,18:00",
+      "location": "Juice Truck (Sat), Nemesis Coffee (Wed), Lynn Headwaters (Tue)",
+      "description": "Social Run Club with multiple weekly runs",
+      "socialMedia": {
+        "instagram": "@slowpokes.van",
+        "facebook": ""
+      }
+    },
+    {
+      "id": "peak-pursuit-yvr",
+      "name": "Peak Pursuit Trail Crew",
+      "day": "Thursday, Sunday",
+      "time": "17:30, 10:30",
+      "location": "Various trail locations",
+      "description": "We run trails. Trail Thursdays and Sunday runs with rotating locations.",
+      "socialMedia": {
+        "instagram": "@peakpursuityvr",
+        "facebook": ""
       }
     }
   ]

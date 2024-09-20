@@ -1,19 +1,16 @@
-import { cityData, cities } from '$lib/cityData.js';
+import { error } from '@sveltejs/kit';
+import { cityData } from '$lib/cityData.js';
 
-export const load = async ({ params }) => {
-  const { city } = params;
-  const lowercaseCity = city.toLowerCase();
+export function load({ params }) {
+  const city = params.city.toLowerCase();
+  const data = cityData[city];
 
-  if (cities.includes(lowercaseCity)) {
-    return { 
-      cityData: cityData[lowercaseCity],
-      clubs: cityData[lowercaseCity].runClubs
+  if (data) {
+    return {
+      city,
+      ...data
     };
-  } else {
-    return { cityData: null, clubs: [] };
   }
-}
 
-export function entries() {
-  return cities.map(city => ({ city }));
+  throw error(404, 'City not found');
 }

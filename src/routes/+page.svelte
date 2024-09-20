@@ -1,28 +1,33 @@
 <script>
-  import { goto } from '$app/navigation';
+  import { cities } from '$lib/cityData.js';
 
-  let city = '';
+  const cityImages = {
+    vancouver: '/vancouver.jpg',
+    toronto: '/toronto.jpg',
+    'kitchener-waterloo': '/kitchener.jpg',
+  };
 
-  function handleSubmit() {
-    if (city) {
-      goto(`/${city.toLowerCase()}`);
-    }
+  function formatCityName(city) {
+    return city.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('-');
   }
 </script>
 
-<h2 class="text-2xl font-bold mb-4">Select a City</h2>
+<svelte:head>
+  <title>runclubs.ca - Find Running Clubs Across Canada</title>
+  <meta name="description" content="Discover and join local running communities across Canada. Find group runs, make new friends, and stay motivated with runclubs.ca." />
+</svelte:head>
 
-<form on:submit|preventDefault={handleSubmit} class="mb-8">
-  <input
-    bind:value={city}
-    placeholder="Enter city name"
-    class="border rounded px-4 py-2 mr-2"
-  />
-  <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">
-    Go
-  </button>
-</form>
+<p class="text-gray-600 mb-4">Discover and join local running communities across Canada. Find group runs, make new friends, and stay motivated with runclubs.ca.</p>
 
-<p>
-  Currently available: <a href="/vancouver" class="text-blue-500 hover:underline">Vancouver</a>
-</p>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {#each cities as city}
+    <a href="/{city.toLowerCase()}" class="relative overflow-hidden rounded-lg shadow-lg h-64 group">
+      <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" style="background-image: url({cityImages[city] || '/images/default-city.jpg'});">
+      </div>
+      <div class="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 group-hover:bg-opacity-30"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <h2 class="text-white text-4xl font-bold lowercase">{formatCityName(city)}</h2>
+      </div>
+    </a>
+  {/each}
+</div>

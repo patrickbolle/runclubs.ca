@@ -1,36 +1,26 @@
 <script>
-  import { page } from '$app/stores';
+  export let data;
   import WeeklyCalendar from '$lib/components/WeeklyCalendar.svelte';
 
-  $: ({ cityData, clubs } = $page.data);
+  function formatCityName(city) {
+    return city.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('-');
+  }
 
-  $: title = cityData ? `${cityData.city} Run Clubs - runclubs.ca` : 'City Not Found - runclubs.ca';
-  $: description = cityData 
-    ? `Discover the best running clubs in ${cityData.city}. Join local running groups and stay active with fellow runners.`
-    : 'Explore run clubs in cities across Canada. Find your perfect running group today!';
+  $: numberOfClubs = data.runClubs.length;
 </script>
 
 <svelte:head>
-  <title>{title}</title>
-  <meta name="description" content={description} />
+  <title>{numberOfClubs} Run Clubs in {formatCityName(data.city)} | runclubs.ca</title>
+  <meta name="description" content="Find {numberOfClubs} running clubs and group runs in {formatCityName(data.city)}. Join a local running community today!" />
 </svelte:head>
 
-{#if cityData}
-  <div class="mb-6 bg-white p-4 rounded-lg shadow">
-    <h1 class="text-2xl font-bold mb-2">{cityData.city} Run Clubs</h1>
-    <p class="mb-2"><strong>Number of Run Clubs:</strong> {clubs.length}</p>
-    <p>{cityData.description}</p>
-  </div>
-  <WeeklyCalendar runClubs={clubs} />
-  
-  <div class="mt-6">
-    <h2 class="text-xl font-bold mb-2">All Clubs</h2>
-    <ul>
-      {#each clubs as club}
-        <li>{club.name}</li>
-      {/each}
-    </ul>
-  </div>
-{:else}
-  <p>No data available for {$page.params.city}. Please check the URL and try again.</p>
-{/if}
+<h2 class="text-2xl font-bold mb-4">{numberOfClubs} Run Club{numberOfClubs !== 1 ? 's' : ''} in {formatCityName(data.city)}</h2>
+
+<p class="mb-4">{data.description}</p>
+
+<div class="mb-8">
+  <h3 class="text-xl font-semibold mb-4">Weekly Schedule</h3>
+  <WeeklyCalendar runClubs={data.runClubs} citySlug={data.city} />
+</div>
+
+<!-- Rest of the component remains the same -->

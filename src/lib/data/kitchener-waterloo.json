@@ -1,0 +1,66 @@
+{
+    "city": "Kitchener-Waterloo",
+    "description": "Kitchener-Waterloo boasts a vibrant running community with various clubs catering to runners of all levels. The area features scenic trails, parks, and urban routes that provide excellent opportunities for both casual and competitive runners. Whether you're looking to improve your pace or simply enjoy a social run, there's a club for you.",
+    "runClubs": [
+      {
+        "id": "waterloo-running-room",
+        "name": "Waterloo Running Room",
+        "day": "Wednesday",
+        "time": "18:30",
+        "location": "Unit #3, 15 King Street South, Waterloo, ON N2J 1N9",
+        "description": "Offers group runs every Wednesday evening, catering to various paces and distances.",
+        "socialMedia": {
+          "instagram": "@runningroom",
+          "facebook": "runningroom"
+        }
+      },
+      {
+        "id": "kitchener-waterloo-runners",
+        "name": "Kitchener-Waterloo Runners",
+        "day": "Saturday",
+        "time": "08:00",
+        "location": "Kitchener City Hall, 200 King St W, Kitchener, ON N2G 4G7",
+        "description": "A social running club that meets every Saturday morning for group runs of various distances.",
+        "socialMedia": {
+          "instagram": "@kwrunners",
+          "facebook": "kwrunners"
+        }
+      },
+      {
+        "id": "guelph-running-club",
+        "name": "Guelph Running Club",
+        "day": "Tuesday,Thursday",
+        "time": "18:00,07:00",
+        "location": "Various locations in Guelph and Kitchener-Waterloo area",
+        "description": "Hosts regular training sessions suitable for all levels, with a focus on community and support.",
+        "socialMedia": {
+          "instagram": "@guelphrunningclub",
+          "facebook": "guelphrunningclub"
+        }
+      },
+      {
+        "id": "run-for-fun-club",
+        "name": "Run For Fun Club",
+        "day": "Monday,Wednesday",
+        "time": "19:00,19:00",
+        "location": "Victoria Park, Kitchener, ON",
+        "description": "A casual club focused on making running fun and social, meeting twice a week.",
+        "socialMedia": {
+          "instagram": "@runforfunclub",
+          "facebook": ""
+        }
+      },
+      {
+        "id": "speed-demons-run-club",
+        "name": "Speed Demons Run Club",
+        "day": "",
+        "time": "",
+        "location": "",
+        "description":  "An informal group that meets for speed workouts and interval training at various locations.",
+        "socialMedia": {
+          "instagram": "@speeddemonsrunclub",
+          "facebook": "speeddemonsrunclub"
+        }
+      }
+    ]
+}

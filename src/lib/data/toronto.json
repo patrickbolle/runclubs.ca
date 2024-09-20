@@ -1,0 +1,78 @@
+{
+    "city": "Toronto",
+    "description": "Toronto offers a diverse running scene with numerous clubs catering to all levels of runners. From scenic routes along Lake Ontario to urban trails through parks and neighborhoods, the city provides a variety of terrains for runners to explore. With a mix of casual social runs and more structured training groups, Toronto's running clubs foster a vibrant community for fitness enthusiasts.",
+    "runClubs": [
+      {
+        "id": "blacktoe-running",
+        "name": "BlackToe Running",
+        "day": "Friday,Sunday",
+        "time": "18:00,08:30",
+        "location": "95 Bathurst St",
+        "description": "Offers free drop-in runs with tempo runs on Fridays and long runs on Sundays, suitable for all levels.",
+        "socialMedia": {
+          "instagram": "@blacktoerunning",
+          "facebook": "blacktoerunning"
+        }
+      },
+      {
+        "id": "culture-athletics",
+        "name": "Culture Athletics",
+        "day": "Sunday",
+        "time": "08:00",
+        "location": "972 Queen St E",
+        "description": "Provides free community runs with short, medium, and long route options to accommodate different skill levels.",
+        "socialMedia": {
+          "instagram": "@cultureathletics",
+          "facebook": "cultureathletics"
+        }
+      },
+      {
+        "id": "me-versus-me",
+        "name": "Me Versus Me",
+        "day": "Thursday",
+        "time": "19:15",
+        "location": "Canoe Landing Park",
+        "description": "A welcoming club for runners of all paces and abilities, meeting rain or shine.",
+        "socialMedia": {
+          "instagram": "@meversusmerun",
+          "facebook": "meversusmerun"
+        }
+      },
+      {
+        "id": "piccolo-run-club",
+        "name": "Piccolo Run Club",
+        "day": "Thursday",
+        "time": "08:30",
+        "location": "Piccolo Caffe E Vino",
+        "description": "Offers 5km runs with great vibes and the option to grab a bite after the run.",
+        "socialMedia": {
+          "instagram": "@piccolocaffe",
+          "facebook": "piccolocaffe"
+        }
+      },
+      {
+        "id": "curre-club",
+        "name": "Curre Club",
+        "day": "Friday",
+        "time": "06:00",
+        "location": "Neo Coffee Bar",
+        "description": "An early morning run club perfect for ending the work week and starting the weekend.",
+        "socialMedia": {
+          "instagram": "@curreclub",
+          "facebook": "curreclub"
+        }
+      },
+      {
+        "id": "runtobeer",
+        "name": "RunTOBeer",
+        "day": "",
+        "time": "",
+        "location": "",
+        "description":  "Combines running with visits to the best bars and breweries in Toronto, offering 3, 5, and 10k routes.",
+        "socialMedia": {
+          "instagram": "@runtobeer",
+          "facebook": "runtobeer"
+        }
+      }
+    ]
+}

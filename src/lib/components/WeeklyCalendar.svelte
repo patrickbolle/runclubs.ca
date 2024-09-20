@@ -3,48 +3,86 @@
   import RunClubCard from './RunClubCard.svelte';
 
   export let runClubs;
+  export let citySlug;
 
-  $: weekDays = getWeekDays();
+  // Ensure citySlug is always lowercase
+  $: lowerCitySlug = citySlug.toLowerCase();
+
+  let weekDays = getWeekDays();
+  let today = new Date().toLocaleString('en-us', {weekday: 'long'});
+
+  // Reorder weekDays to start with today
+  let todayIndex = weekDays.findIndex(date => formatDate(date) === today);
+  weekDays = [...weekDays.slice(todayIndex), ...weekDays.slice(0, todayIndex)];
+
+  function formatTime(time) {
+    if (!time) return '';
+    const [hours, minutes] = time.split(':');
+    const parsedHours = parseInt(hours, 10);
+    const ampm = parsedHours >= 12 ? 'PM' : 'AM';
+    const formattedHours = parsedHours % 12 || 12;
+    return `${formattedHours}:${minutes} ${ampm}`;
+  }
+
   $: clubsByDay = weekDays.map(date => {
     const dayName = formatDate(date);
     return {
       date,
-      clubs: runClubs.filter(club => {
-        if (club.day === 'Various') return true;
-        const clubDays = club.day.split(' and ');
-        return clubDays.includes(dayName);
+      clubs: runClubs.flatMap(club => {
+        const clubDays = club.day.split(',').map(d => d.trim());
+        const clubTimes = club.time.split(',').map(t => t.trim());
+        
+        const dayIndex = clubDays.indexOf(dayName);
+        if (dayIndex !== -1) {
+          return [{
+            ...club,
+            relevantTime: formatTime(clubTimes[dayIndex])
+          }];
+        }
+        return [];
       })
     };
   });
 
-  function truncate(str, n) {
-    return (str.length > n) ? str.slice(0, n-1) + '...' : str;
+  function getCardClasses(index) {
+    let classes = "border border-gray-200 rounded-lg p-3 bg-white shadow-md transition-all duration-300 hover:shadow-lg flex flex-col";
+    
+    if (index === 0) {
+      classes += " md:col-span-2 md:col-start-1 md:row-start-1";
+      classes += " ring-2 ring-blue-500";
+    } else if (index === 1) {
+      classes += " md:col-span-1 md:col-start-3 md:row-start-1";
+    } else if (index === 2) {
+      classes += " md:col-span-1 md:col-start-4 md:row-start-1";
+    } else {
+      classes += " md:col-span-1 md:row-start-2";
+    }
+
+    return classes;
   }
 </script>
 
-<div class="grid grid-cols-7 gap-2">
-  {#each clubsByDay as { date, clubs }}
-    <div class="border border-gray-200 rounded p-2 bg-white shadow">
-      <h3 class="font-bold mb-2 text-center text-sm">
-        {formatDate(date)}
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+  {#each clubsByDay as { date, clubs }, index}
+    <div 
+      class={getCardClasses(index)}
+      style="min-height: 300px;"
+    >
+      <h3 class="font-bold mb-3 text-center text-sm sm:text-base {index === 0 ? 'text-blue-600' : 'text-gray-700'}">
+        {formatDate(date)} {index === 0 ? '(Today)' : ''}
       </h3>
-      <div class="space-y-2">
-        {#each clubs.slice(0, 3) as club}
-          <RunClubCard {club} compact={true} />
-        {/each}
-        {#if clubs.length > 3}
-          <p class="text-xs text-center text-gray-500">+{clubs.length - 3} more</p>
+      <div class="space-y-2 flex-grow overflow-y-auto">
+        {#if clubs.length > 0}
+          {#each clubs as club}
+            <a href="/{lowerCitySlug}/{club.id}" class="block bg-gray-50 rounded p-2 text-xs sm:text-sm hover:bg-gray-100 transition-colors duration-200">
+              <p class="font-semibold">{club.name}</p>
+              <p class="text-gray-600">{club.relevantTime}</p>
+            </a>
+          {/each}
+        {:else}
+          <p class="text-xs sm:text-sm text-center text-gray-500">No runs scheduled</p>
         {/if}
       </div>
     </div>
   {/each}
-</div>
-
-<div class="mt-8">
-  <h3 class="text-xl font-bold mb-4">All Run Clubs</h3>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    {#each runClubs as club}
-      <RunClubCard {club} />
-    {/each}
-  </div>
 </div>
