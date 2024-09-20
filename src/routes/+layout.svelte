@@ -1,8 +1,7 @@
 <script>
-    import { base } from '$app/paths';
-  import '../app.css';
   import { page } from '$app/stores';
   import vancouverData from '$lib/data/vancouver.json';
+  import '../app.css';
 
   $: currentCity = $page.params.city || '';
   $: cityData = currentCity.toLowerCase() === 'vancouver' ? vancouverData : null;
