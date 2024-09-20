@@ -1,4 +1,5 @@
 <script>
+    import { base } from '$app/paths';
   import '../app.css';
   import { page } from '$app/stores';
   import vancouverData from '$lib/data/vancouver.json';
@@ -10,6 +11,7 @@
 
 <svelte:head>
   <title>{$page.data.title || 'runclubs.ca'}</title>
+  <script async src="https://data.kwconcerts.ca/script.js" data-website-id="21f20d8e-556d-499e-b62d-5c6ca8c6c38e"></script>
   <meta name="description" content={$page.data.description || 'Find run clubs in your city across Canada'} />
 </svelte:head>
 
