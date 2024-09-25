@@ -74,7 +74,7 @@
       <div class="space-y-2 flex-grow overflow-y-auto">
         {#if clubs.length > 0}
           {#each clubs as club}
-            <a href="/{lowerCitySlug}/{club.id}" class="text-emerald-600 block bg-gray-50 rounded p-2 text-xs sm:text-sm hover:bg-gray-100 transition-colors duration-200">
+            <a href="/{lowerCitySlug}/{club.id}" class="text-emerald-600 block bg-gray-50 rounded p-2 text-sm sm:text-sm hover:bg-gray-100 transition-colors duration-200">
               <p class="font-semibold">{club.name}</p>
               <p class="text-gray-600">{club.relevantTime}</p>
             </a>

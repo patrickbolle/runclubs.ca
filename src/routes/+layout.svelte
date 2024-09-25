@@ -21,14 +21,16 @@
 </svelte:head>
 
 <div class="min-h-screen bg-gray-100 text-gray-900">
-  <div class="container mx-auto px-4 py-8 max-w-7xl">
-    <header class="mb-4 flex justify-between items-center">
-      <h1 class="text-3xl font-bold flex items-center flex-wrap">
-        <a href="/" class=" text-gray-900 hover:text-emerald-500 transition-colors duration-200 py-1 border-neutral-10">runclubs.ca
-        <span class="mr-2 font-bold"> //</span></a>
-        <div class="relative inline-flex items-center">
+  <div class="container mx-auto px-4 py-3 max-w-7xl text-center md:text-left">
+    <header class="mb-4 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
+      <h1 class="text-3xl font-bold flex flex-col sm:flex-row items-center w-full sm:w-auto mb-2 sm:mb-0 ">
+        <a href="/" class="text-gray-900 hover:text-emerald-500 transition-colors duration-200 py-1 flex-1 border-neutral-10">
+          runclubs.ca
+          <span class="mr-2 font-bold"> //</span>
+        </a>
+        <div class="relative inline-flex items-center w-full -mt-2 sm:mt-0 flex-1 sm:mt-0">
           <select 
-            class="appearance-none bg-transparent border-b-2 border-emerald-500 text-emerald-500 py-1 pr-8 pl-1 lowercase focus:outline-none"
+            class="appearance-none bg-transparent border-b-2 border-emerald-500 text-emerald-500 py-1 pr-8 pl-1 lowercase focus:outline-none w-full text-center sm:text-left"
             value={currentCity}
             on:change={handleCityChange}
           >
@@ -44,7 +46,7 @@
       </h1>
       <a
         href="mailto:patrick@runclubs.ca?subject=Submit%20a%20Club"
-        class="bg-emerald-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+        class="hidden sm:inline-block bg-emerald-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
       >
         Submit a Club
       </a>
@@ -66,6 +68,16 @@
     </main>
 
     <footer class="mt-8 text-center text-gray-500">
+      <div class="bg-white p-6 rounded-lg shadow mb-4">
+        <h2 class="text-xl font-bold mb-2">Submit a Club</h2>
+        <p class="mb-4">Know a great run club that's not listed? Let us know!</p>
+        <a
+          href="mailto:patrick@runclubs.ca?subject=Submit%20a%20Club"
+          class="bg-emerald-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded inline-block"
+        >
+          Submit a Club
+        </a>
+      </div>
       <p>🏃🏽 runclubs.ca</p>
       <p>
         <a class="text-emerald-500" target="_blank" href="https://bollenbach.ca/?utm_source=runclubs">Built by Patrick Bollenbach</a>
@@ -75,9 +87,11 @@
 </div>
 
 <style>
+  @media (min-width: 720px) {
   select {
     max-width: 100%;
     min-width: 120px;
-    width: auto;
+      width: auto;
+    }
   }
 </style>
