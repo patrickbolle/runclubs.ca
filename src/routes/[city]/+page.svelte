@@ -35,7 +35,7 @@
           <p class="text-sm text-gray-600 mb-2">{club.description}</p>
           <p class="text-sm"><strong>Day(s):</strong> {club.day}</p>
           <p class="text-sm"><strong>Time(s):</strong> {club.time}</p>
-          <p class="text-sm text-blue-600 mt-2">Click for more details</p>
+          <p class="text-sm text-emerald-600 mt-2">Click for more details</p>
         </div>
       </a>
     {/each}

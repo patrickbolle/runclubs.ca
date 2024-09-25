@@ -49,7 +49,7 @@
     
     if (index === 0) {
       classes += " md:col-span-2 md:col-start-1 md:row-start-1";
-      classes += " ring-2 ring-blue-500";
+      classes += " ring-2 ring-emerald-500";
     } else if (index === 1) {
       classes += " md:col-span-1 md:col-start-3 md:row-start-1";
     } else if (index === 2) {
@@ -68,13 +68,13 @@
       class={getCardClasses(index)}
       style="min-height: 300px;"
     >
-      <h3 class="font-bold mb-3 text-center text-sm sm:text-base {index === 0 ? 'text-blue-600' : 'text-gray-700'}">
+      <h3 class="font-bold mb-3 text-center text-sm sm:text-base text-gray-700">
         {formatDate(date)} {index === 0 ? '(Today)' : ''}
       </h3>
       <div class="space-y-2 flex-grow overflow-y-auto">
         {#if clubs.length > 0}
           {#each clubs as club}
-            <a href="/{lowerCitySlug}/{club.id}" class="block bg-gray-50 rounded p-2 text-xs sm:text-sm hover:bg-gray-100 transition-colors duration-200">
+            <a href="/{lowerCitySlug}/{club.id}" class="text-emerald-600 block bg-gray-50 rounded p-2 text-xs sm:text-sm hover:bg-gray-100 transition-colors duration-200">
               <p class="font-semibold">{club.name}</p>
               <p class="text-gray-600">{club.relevantTime}</p>
             </a>

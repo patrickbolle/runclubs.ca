@@ -1,16 +1,16 @@
 <script>
   import { page } from '$app/stores';
   import { formatTime } from '$lib/utils';
-  import vancouverData from '$lib/data/vancouver.json';
+  import { cityData } from '$lib/cityData';
 
   $: city = $page.params.city;
   $: clubId = $page.params.clubId;
-  $: cityData = city.toLowerCase() === 'vancouver' ? vancouverData : null;
-  $: club = cityData?.runClubs.find(c => c.id === clubId);
+  $: cityInfo = cityData[city.toLowerCase()];
+  $: club = cityInfo?.runClubs.find(c => c.id === clubId);
 
-  $: title = club ? `${club.name} in ${cityData.city} - runclubs.ca` : 'Canadian Run Clubs - runclubs.ca';
+  $: title = club ? `${club.name} in ${cityInfo.city} - runclubs.ca` : 'Canadian Run Clubs - runclubs.ca';
   $: description = club
-    ? `Join ${club.name} in ${cityData.city} every ${club.day} at ${formatTime(club.time)}. Meet at ${club.location} for a great run!`
+    ? `Join ${club.name} in ${cityInfo.city} every ${club.day} at ${formatTime(club.time)}. Meet at ${club.location} for a great run!`
     : 'Explore run clubs in cities across Canada. Find your perfect running group today!';
 </script>
 
@@ -30,10 +30,10 @@
     <h3 class="text-xl font-bold mb-2">Social Media</h3>
     <ul>
       {#if club.socialMedia.instagram}
-        <li>Instagram: <a href="https://instagram.com/{club.socialMedia.instagram.slice(1)}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">{club.socialMedia.instagram}</a></li>
+        <li>Instagram: <a href="https://instagram.com/{club.socialMedia.instagram.slice(1)}" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:underline">{club.socialMedia.instagram}</a></li>
       {/if}
       {#if club.socialMedia.facebook}
-        <li>Facebook: <a href="https://facebook.com/{club.socialMedia.facebook}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">{club.socialMedia.facebook}</a></li>
+        <li>Facebook: <a href="https://facebook.com/{club.socialMedia.facebook}" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:underline">{club.socialMedia.facebook}</a></li>
       {/if}
     </ul>
   </div>

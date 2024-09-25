@@ -10,4 +10,5 @@ export const cityData = {
 
 export const cities = Object.keys(cityData);
 
-console.log('City Data:', cityData);
+// Remove or comment out this line as it's not necessary and might cause issues:
+// console.log('City Data:', cityData);

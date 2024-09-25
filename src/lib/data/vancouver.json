@@ -8,7 +8,7 @@
       "day": "Monday",
       "time": "18:30",
       "location": "Various breweries in East Van",
-      "description": "A social run to shake out the Monday blues, starting from a different brewery each week.",
+      "description": "A social run to shake out the Monday emeralds, starting from a different brewery each week.",
       "socialMedia": {
         "instagram": "@eastvanruncrew",
         "facebook": "eastvanruncrew"
@@ -143,6 +143,18 @@
       "description": "We run trails. Trail Thursdays and Sunday runs with rotating locations.",
       "socialMedia": {
         "instagram": "@peakpursuityvr",
+        "facebook": ""
+      }
+    },
+    {
+      "id": "nrg-vancouver",
+      "name": "NRG Vancouver",
+      "day": "Wednesday",
+      "time": "18:30",
+      "location": "Morton Park",
+      "description": "Vancouver's Most Fun Run Club. All paces welcome. Free runs followed by social gathering at English Bay.",
+      "socialMedia": {
+        "instagram": "@nrgvancouver",
         "facebook": ""
       }
     }
