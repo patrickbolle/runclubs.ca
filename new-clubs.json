@@ -1,0 +1,135 @@
+{
+	"vancouver": {
+		"clubs": [
+			{
+				"id": "yvr-social-run",
+				"name": "YVR Social Run Club",
+				"day": "Tuesday,Saturday",
+				"time": "18:30,08:30",
+				"location": "Various locations",
+				"description": "Offers multiple pace groups (6:00/km, 6:30/km, and 7:00/km) with consistent pacing",
+				"socialMedia": {
+					"instagram": "@yvrsocialrun"
+				}
+			},
+			{
+				"id": "hummingbird-run",
+				"name": "Hummingbird Run Club",
+				"day": "Saturday",
+				"time": "08:00",
+				"location": "Second Beach Concession Stand, Stanley Park",
+				"description": "Social running group with post-run coffee and food",
+				"socialMedia": {
+					"instagram": "@hummingbirdrun"
+				}
+			},
+			{
+				"id": "monday-run-club",
+				"name": "Monday Run Club",
+				"day": "Monday",
+				"time": "18:30",
+				"location": "Various locations",
+				"description": "Social runs with average pace of 6-6:30/km",
+				"socialMedia": {
+					"instagram": "@monday.run.club"
+				}
+			},
+			{
+				"id": "shift-together",
+				"name": "Shift Together",
+				"day": "Monday",
+				"time": "19:30",
+				"location": "Central Park and Deer Lake (rotating)",
+				"description": "Social run for all levels",
+				"socialMedia": {
+					"instagram": "@shift.together"
+				}
+			},
+			{
+				"id": "distance-runwear",
+				"name": "Distance Runwear Group",
+				"day": "Sunday",
+				"time": "08:30",
+				"location": "Distance Runwear (Main Street & 32nd)",
+				"description": "Free long run group, typically 20-30km, different routes weekly",
+				"socialMedia": {
+					"instagram": "@distancerunwear"
+				}
+			}
+		]
+	},
+	"toronto": {
+		"clubs": [
+			{
+				"id": "slow-canucks",
+				"name": "Slow as F*ck Canuks",
+				"day": "Thursday",
+				"time": "18:30",
+				"location": "Varies (West Toronto)",
+				"description": "Inclusive social running group",
+				"socialMedia": {
+					"instagram": "@slowcanucks"
+				}
+			},
+			{
+				"id": "le-6am-club",
+				"name": "Le 6am Club",
+				"day": "Friday",
+				"time": "06:00",
+				"location": "Balzacs Coffee on Market Street",
+				"description": "Early morning easy pace runs",
+				"socialMedia": {
+					"instagram": "@le6amclub"
+				}
+			},
+			{
+				"id": "running-rats",
+				"name": "Running Rats Toronto",
+				"day": "Tuesday",
+				"time": "18:30",
+				"location": "Decathlon store at Union Station",
+				"description": "Three distances offered: 7k, 10k, and 13k",
+				"socialMedia": {
+					"instagram": "@runningratsto"
+				}
+			}
+		]
+	},
+	"ottawa": {
+		"clubs": [
+			{
+				"id": "ottawa-city",
+				"name": "Ottawa City Run Club",
+				"day": "Tuesday",
+				"time": "19:30",
+				"location": "Beyond the Pale",
+				"description": "Large inclusive group with runners of all levels",
+				"socialMedia": {
+					"instagram": "@ottcityrunclub"
+				}
+			},
+			{
+				"id": "badass-lady-gang",
+				"name": "Badass Lady Gang",
+				"day": "Monday",
+				"time": "19:00",
+				"location": "Tunney's Pasture",
+				"description": "Women's running group with multiple pace options",
+				"socialMedia": {
+					"instagram": "@badassladygangott"
+				}
+			},
+			{
+				"id": "sparks-street",
+				"name": "Sparks Street Run Club",
+				"day": "Wednesday,Saturday",
+				"time": "18:30,09:00",
+				"location": "Sparks Street",
+				"description": "Mixed level running group in downtown Ottawa",
+				"socialMedia": {
+					"instagram": "@sparksstreetrun"
+				}
+			}
+		]
+	}
+}

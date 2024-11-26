@@ -4,6 +4,13 @@
 
   $: ({ city } = data);
   $: numberOfClubs = city.clubs.length;
+
+  function formatEvents(events) {
+    if (!events || events.length === 0) return 'No scheduled times';
+    return events
+      .map(e => `${e.day_of_week}: ${e.start_time.slice(0, 5)}`)
+      .join(', ');
+  }
 </script>
 
 <svelte:head>
@@ -28,8 +35,7 @@
         <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-4">
           <h4 class="text-lg font-semibold mb-2">{club.name}</h4>
           <p class="text-sm text-gray-600 mb-2">{club.description}</p>
-          <p class="text-sm"><strong>Day(s):</strong> {club.day}</p>
-          <p class="text-sm"><strong>Time(s):</strong> {club.time}</p>
+          <p class="text-sm"><strong>Schedule:</strong> {formatEvents(club.events)}</p>
           <p class="text-sm text-emerald-600 mt-2">Click for more details</p>
         </div>
       </a>

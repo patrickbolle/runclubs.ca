@@ -1,13 +1,15 @@
-import vancouver from '../data/vancouver.json' assert { type: 'json' };
-import toronto from '../data/toronto.json' assert { type: 'json' };
-import kitchenerWaterloo from '../data/kitchener-waterloo.json' assert { type: 'json' };
-import { v4 as uuidv4 } from 'uuid';
+import dotenv from 'dotenv';
 import pg from 'pg';
-import { DATABASE_URL, NODE_ENV } from '$env/static/private';
+import { v4 as uuidv4 } from 'uuid';
+import vancouver from '../src/lib/data/vancouver.json' assert { type: 'json' };
+import toronto from '../src/lib/data/toronto.json' assert { type: 'json' };
+import kitchenerWaterloo from '../src/lib/data/kitchener-waterloo.json' assert { type: 'json' };
+
+dotenv.config();
 
 const pool = new pg.Pool({
-  connectionString: DATABASE_URL,
-  ssl: NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+  connectionString: process.env.DATABASE_URL,
+  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
 });
 
 const cities = [
@@ -26,7 +28,7 @@ function parseEvents(day, time) {
   }));
 }
 
-export async function seedDatabase() {
+async function reseedDatabase() {
   const client = await pool.connect();
   
   try {
@@ -37,25 +39,21 @@ export async function seedDatabase() {
     await client.query('TRUNCATE TABLE clubs CASCADE');
     await client.query('TRUNCATE TABLE cities CASCADE');
 
-    // Insert cities
     for (const { data, slug } of cities) {
+      // Insert city with UUID
       const cityId = uuidv4();
-      console.log(`Creating city ${data.city} with ID ${cityId}`);
-      
-      await client.query(`
-        INSERT INTO cities (id, slug, name, description)
-        VALUES ($1, $2, $3, $4)
-      `, [cityId, slug, data.city, data.description]);
+      await client.query(
+        'INSERT INTO cities (id, slug, name, description) VALUES ($1, $2, $3, $4)',
+        [cityId, slug, data.city, data.description]
+      );
 
-      // Insert clubs for this city
+      // Insert clubs with UUIDs
       for (const club of data.clubs) {
         const clubId = uuidv4();
-        console.log(`Creating club ${club.name} with ID ${clubId}`);
-
         await client.query(`
           INSERT INTO clubs (
             id, slug, name, location, description,
-            instagram, facebook, city_id, status
+            instagram, facebook, "cityId", status
           ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, 'approved')
         `, [
           clubId,
@@ -68,7 +66,7 @@ export async function seedDatabase() {
           cityId
         ]);
 
-        // Create events for this club
+        // Insert events
         if (club.day && club.time) {
           const events = parseEvents(club.day, club.time);
           for (const event of events) {
@@ -85,16 +83,28 @@ export async function seedDatabase() {
           }
         }
       }
+      
+      console.log(`Seeded city: ${data.city}`);
     }
 
     await client.query('COMMIT');
-    console.log('Database seeded successfully!');
+    console.log('Database reseeded successfully!');
 
   } catch (error) {
     await client.query('ROLLBACK');
-    console.error('Error seeding database:', error);
+    console.error('Error reseeding database:', error);
     throw error;
   } finally {
     client.release();
   }
-} 
+}
+
+reseedDatabase()
+  .then(() => {
+    console.log('Reseeding completed, exiting...');
+    process.exit(0);
+  })
+  .catch(error => {
+    console.error('Reseeding failed:', error);
+    process.exit(1);
+  }); 

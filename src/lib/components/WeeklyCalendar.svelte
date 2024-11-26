@@ -1,6 +1,5 @@
 <script>
   import { getWeekDays, formatDate } from '$lib/utils';
-  import RunClubCard from './RunClubCard.svelte';
 
   export let clubs;
   export let citySlug;
@@ -17,11 +16,7 @@
 
   function formatTime(time) {
     if (!time) return '';
-    const [hours, minutes] = time.split(':');
-    const parsedHours = parseInt(hours, 10);
-    const ampm = parsedHours >= 12 ? 'PM' : 'AM';
-    const formattedHours = parsedHours % 12 || 12;
-    return `${formattedHours}:${minutes} ${ampm}`;
+    return time.slice(0, 5); // Format HH:MM from HH:MM:SS
   }
 
   $: clubsByDay = weekDays.map(date => {
@@ -29,17 +24,16 @@
     return {
       date,
       clubs: clubs.flatMap(club => {
-        const clubDays = club.day.split(',').map(d => d.trim());
-        const clubTimes = club.time.split(',').map(t => t.trim());
+        const dayEvents = club.events.filter(event => 
+          event.day_of_week === dayName
+        );
         
-        const dayIndex = clubDays.indexOf(dayName);
-        if (dayIndex !== -1) {
-          return [{
-            ...club,
-            relevantTime: formatTime(clubTimes[dayIndex])
-          }];
-        }
-        return [];
+        if (dayEvents.length === 0) return [];
+        
+        return dayEvents.map(event => ({
+          ...club,
+          relevantTime: formatTime(event.start_time)
+        }));
       })
     };
   });

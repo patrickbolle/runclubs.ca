@@ -5,6 +5,7 @@
     vancouver: '/vancouver.jpg',
     toronto: '/toronto.jpg',
     'kitchener-waterloo': '/kitchener.jpg',
+    ottawa: '/ottawa.jpg'
   };
 </script>
 
