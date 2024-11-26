@@ -46,7 +46,7 @@
         </div>
       </h1>
       <a
-        href="mailto:patrick@runclubs.ca?subject=Submit%20a%20Club"
+        href="/submit"
         class="hidden sm:inline-block bg-emerald-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
       >
         Submit a Club
@@ -73,7 +73,7 @@
         <h2 class="text-xl font-bold mb-2">Submit a Club</h2>
         <p class="mb-4">Know a great run club that's not listed? Let us know!</p>
         <a
-          href="mailto:patrick@runclubs.ca?subject=Submit%20a%20Club"
+          href="/submit"
           class="bg-emerald-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded inline-block"
         >
           Submit a Club
