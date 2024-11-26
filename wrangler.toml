@@ -1,3 +1,7 @@
 name = "runclubs-ca"
-main = "./functions/_middleware.js"
 compatibility_date = "2023-05-18"
+
+# Add this for better local development
+[build]
+command = "npm run build"
+watch_dir = "src"

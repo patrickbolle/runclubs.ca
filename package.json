@@ -1,17 +1,20 @@
 {
 	"name": "runclubs.ca",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"private": true,
-	"engines": {
-		"node": "18.17.1"
-	},
 	"scripts": {
 		"dev": "vite dev",
+		"dev:build": "vite build --watch",
+		"dev:serve": "wrangler pages dev build --d1 DB=runclubsca",
 		"build": "vite build",
-		"preview": "vite preview",
+		"preview": "wrangler pages dev build --d1 DB=runclubsca",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
-		"deploy": "npm run build && wrangler pages publish build"
+		"deploy": "npm run build && wrangler pages publish build",
+		"db:create": "psql -U postgres -c 'CREATE DATABASE runclubs'",
+		"db:schema": "psql -U postgres -d runclubs -f scripts/schema.sql",
+		"db:seed": "node scripts/seed.js",
+		"db:reset": "npm run db:create && npm run db:schema && npm run db:seed"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
@@ -20,6 +23,7 @@
 		"@tailwindcss/typography": "^0.5.14",
 		"@types/eslint": "^9.6.0",
 		"autoprefixer": "^10.4.20",
+		"concurrently": "^8.2.2",
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.36.0",
@@ -35,6 +39,10 @@
 	"type": "module",
 	"dependencies": {
 		"@sveltejs/adapter-cloudflare": "^4.7.2",
-		"date-fns": "^4.1.0"
+		"date-fns": "^4.1.0",
+		"pg": "^8.11.3"
+	},
+	"volta": {
+		"node": "22.11.0"
 	}
 }

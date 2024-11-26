@@ -1,7 +1,7 @@
 {
     "city": "Toronto",
     "description": "Toronto offers a diverse running scene with numerous clubs catering to all levels of runners. From scenic routes along Lake Ontario to urban trails through parks and neighborhoods, the city provides a variety of terrains for runners to explore. With a mix of casual social runs and more structured training groups, Toronto's running clubs foster a vibrant community for fitness enthusiasts.",
-    "runClubs": [
+    "clubs": [
       {
         "id": "blacktoe-running",
         "name": "BlackToe Running",

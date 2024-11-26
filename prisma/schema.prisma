@@ -1,0 +1,34 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model City {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String
+  description String
+  clubs    RunClub[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model RunClub {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  day         String
+  time        String
+  location    String
+  description String
+  instagram   String?
+  facebook    String?
+  cityId      String
+  city        City     @relation(fields: [cityId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+} 

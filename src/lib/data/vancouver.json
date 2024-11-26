@@ -1,7 +1,7 @@
 {
   "city": "Vancouver",
   "description": "Vancouver is a runner's paradise, featuring a vibrant running community and diverse terrain, from the iconic Stanley Park Seawall to scenic trails in the North Shore mountains. With a mild climate and numerous run clubs catering to all levels, the city has run clubs offering anything from casual group runs to competitive training.",
-  "runClubs": [
+  "clubs": [
     {
       "id": "east-van-run-crew",
       "name": "East Van Run Crew (EVRC)",

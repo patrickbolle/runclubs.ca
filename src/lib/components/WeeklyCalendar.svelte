@@ -2,7 +2,7 @@
   import { getWeekDays, formatDate } from '$lib/utils';
   import RunClubCard from './RunClubCard.svelte';
 
-  export let runClubs;
+  export let clubs;
   export let citySlug;
 
   // Ensure citySlug is always lowercase
@@ -28,7 +28,7 @@
     const dayName = formatDate(date);
     return {
       date,
-      clubs: runClubs.flatMap(club => {
+      clubs: clubs.flatMap(club => {
         const clubDays = club.day.split(',').map(d => d.trim());
         const clubTimes = club.time.split(',').map(t => t.trim());
         

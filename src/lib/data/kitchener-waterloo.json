@@ -1,7 +1,7 @@
 {
     "city": "Kitchener-Waterloo",
     "description": "Kitchener-Waterloo boasts a vibrant running community with various clubs catering to runners of all levels. The area features scenic trails, parks, and urban routes that provide excellent opportunities for both casual and competitive runners. Whether you're looking to improve your pace or simply enjoy a social run, there's a club for you.",
-    "runClubs": [
+    "clubs": [
       {
         "id": "waterloo-running-room",
         "name": "Waterloo Running Room",

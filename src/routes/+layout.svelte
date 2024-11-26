@@ -2,7 +2,8 @@
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
   import '../app.css';
-  import { cities } from '$lib/cityData.js';
+
+  export let data;
 
   $: currentCity = $page.params.city || '';
   $: currentClub = $page.params.clubId || '';
@@ -10,7 +11,7 @@
 
   function handleCityChange(event) {
     const selectedCity = event.target.value;
-    goto(selectedCity ? `/${selectedCity.toLowerCase()}` : '/');
+    goto(selectedCity ? `/${selectedCity}` : '/');
   }
 </script>
 
@@ -35,8 +36,8 @@
             on:change={handleCityChange}
           >
             <option value="" disabled selected>select a city</option>
-            {#each cities as city}
-              <option value={city.toLowerCase()}>{city}</option>
+            {#each data.cities as city}
+              <option value={city.slug}>{city.name}</option>
             {/each}
           </select>
           <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-emerald-500">
@@ -88,9 +89,9 @@
 
 <style>
   @media (min-width: 720px) {
-  select {
-    max-width: 100%;
-    min-width: 120px;
+    select {
+      max-width: 100%;
+      min-width: 120px;
       width: auto;
     }
   }
